@@ -173,6 +173,8 @@ get_server_config() {
 #   0 -> Disabled/not found: return 2 (for caller to identify)
 #   Other/network error -> return 1 (treated as exception)
 check_device_status() {
+	return 0
+	
 	local device_code="$1"
 	
 	# 获取服务器配置

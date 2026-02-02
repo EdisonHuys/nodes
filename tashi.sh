@@ -403,9 +403,9 @@ check_container_runtime() {
 # Check network connectivity & NAT status
 check_internet() {
 	# Step 1: Confirm Public Internet Access (No ICMP Required)
-	if curl -s --head --connect-timeout 3 https://google.com | grep "HTTP" >/dev/null 2>&1; then
+	if curl -s --head --connect-timeout 15 https://google.com | grep "HTTP" >/dev/null 2>&1; then
 		log "INFO" "Internet Connectivity: ${CHECKMARK} Device has public Internet access."
-	elif wget --spider --timeout=3 --quiet https://google.com; then
+	elif wget --spider --timeout=15 --quiet https://google.com; then
 		log "INFO" "Internet Connectivity: ${CHECKMARK} Device has public Internet access."
 	else
 		log "ERROR" "Internet Connectivity: ${CROSSMARK} No internet access detected!"
